@@ -64,7 +64,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         userRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                textViewUserEmail.setText("Welcome " + dataSnapshot.getValue(User.class).getUsername());
+                textViewUserEmail.setText("Bienvenido " + dataSnapshot.getValue(User.class).getUsername());
             }
 
             @Override

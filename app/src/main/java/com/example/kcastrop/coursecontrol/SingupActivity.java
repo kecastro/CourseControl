@@ -82,7 +82,7 @@ public class SingupActivity extends AppCompatActivity implements View.OnClickLis
         }
 
         if(TextUtils.isEmpty(password)){
-            Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Por favor ingrese la contraseña",Toast.LENGTH_LONG).show();
             return;
         }
 
