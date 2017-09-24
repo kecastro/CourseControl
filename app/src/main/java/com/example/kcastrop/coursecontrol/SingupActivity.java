@@ -96,8 +96,8 @@ public class SingupActivity extends AppCompatActivity implements View.OnClickLis
                             //display some message here
                             User u = new User(firebaseAuth.getCurrentUser().getUid());
                             String e = firebaseAuth.getCurrentUser().getEmail();
-                            String[] getUsername = e.split("@");
-                            u.setUsername(getUsername[0]);
+                            String getUsername = e.substring(0, e.length() - 4);
+                            u.setUsername(getUsername);
                             mDatabase.child("users/" + u.getFirebaseId()).setValue(u);
                             finish();
                             startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
