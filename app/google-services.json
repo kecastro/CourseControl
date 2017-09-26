@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "438712868631",
+    "firebase_url": "https://course-control-app.firebaseio.com",
+    "project_id": "course-control-app",
+    "storage_bucket": "course-control-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:438712868631:android:76bfccda8c4ed97b",
+        "android_client_info": {
+          "package_name": "com.example.kcastrop.coursecontrol"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "438712868631-5474hjg739c3l6f6ttkgrlfobv9130bt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kcastrop.coursecontrol",
+            "certificate_hash": "f32138c23f33eb1872f5c56e9eadba581eee27db"
+          }
+        },
+        {
+          "client_id": "438712868631-te75tbr2ujduplfnv16cp81mrqf8sfef.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kcastrop.coursecontrol",
+            "certificate_hash": "cbd1e85ca389d4778cece075ac27fb61692d7bf8"
+          }
+        },
+        {
+          "client_id": "438712868631-lo0kf8md634i56dg2gr92htdcv5l0n8t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdVwwIXIGisOnm8UcpLjicY4stuq2DbP0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "438712868631-lo0kf8md634i56dg2gr92htdcv5l0n8t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
