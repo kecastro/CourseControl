@@ -185,14 +185,14 @@ public class SingupActivity extends AppCompatActivity implements GoogleApiClient
                                     else{
                                         Log.d("Exist", "User: " + user.getEmail() + " exists");
                                     }
+                                    finish();
+                                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
                                 }
                                 @Override
                                 public void onCancelled(DatabaseError databaseError) {
                                     Log.d("Database error", "The read failed: " + databaseError.getCode());
                                 }
                             });
-                            finish();
-                            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
