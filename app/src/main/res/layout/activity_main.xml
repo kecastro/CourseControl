@@ -37,6 +37,20 @@
             android:text="Registrarse" />
 
         <TextView
+            android:text="Inicia sesion con tu cuenta de google"
+            android:id="@+id/textViewGoogleSingIn"
+            android:textAlignment="center"
+            android:layout_margin="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/login_with_google"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp" />
+
+        <TextView
             android:text="Ya esta registrado? Inicie sesion"
             android:id="@+id/textViewSignin"
             android:textAlignment="center"

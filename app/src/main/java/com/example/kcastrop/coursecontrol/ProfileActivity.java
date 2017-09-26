@@ -21,7 +21,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     //firebase auth object
     private FirebaseAuth firebaseAuth;
-    final FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference database;
 
     //view objects
     private TextView textViewUserEmail;
@@ -31,6 +31,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        database = FirebaseDatabase.getInstance().getReference();
 
         //initializing firebase authentication object
         firebaseAuth = FirebaseAuth.getInstance();
@@ -58,7 +60,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         //getting current user
         FirebaseUser user = firebaseAuth.getCurrentUser();
-        DatabaseReference userRef = database.getReference("users/"+user.getUid());
+        DatabaseReference userRef = database.child("users/"+user.getUid());
 
         //displaying logged in user name
         userRef.addValueEventListener(new ValueEventListener() {
