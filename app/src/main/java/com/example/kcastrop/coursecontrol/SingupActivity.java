@@ -137,7 +137,7 @@ public class SingupActivity extends AppCompatActivity implements GoogleApiClient
                             //display some message here
                             User u = new User(firebaseAuth.getCurrentUser().getUid());
                             String e = firebaseAuth.getCurrentUser().getEmail();
-                            String getUsername = e.substring(0, e.length() - 4);
+                            String getUsername = e.substring(0, e.lastIndexOf("."));
                             u.setUsername(getUsername);
                             database.child("users/" + u.getFirebaseId()).setValue(u);
                             finish();
@@ -178,7 +178,7 @@ public class SingupActivity extends AppCompatActivity implements GoogleApiClient
                                         Log.d("Exist", "User: " + user.getEmail() + " does not exists in database. Adding ...");
                                         User u = new User(firebaseAuth.getCurrentUser().getUid());
                                         String e = firebaseAuth.getCurrentUser().getEmail();
-                                        String getUsername = e.substring(0, e.length() - 4);
+                                        String getUsername = e.substring(0, e.lastIndexOf("."));
                                         u.setUsername(getUsername);
                                         database.child("users/" + u.getFirebaseId()).setValue(u);
                                     }
