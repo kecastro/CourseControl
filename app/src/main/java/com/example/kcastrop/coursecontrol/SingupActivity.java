@@ -60,7 +60,7 @@ public class SingupActivity extends AppCompatActivity implements GoogleApiClient
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_signup);
 
         //initializing firebase auth object
         firebaseAuth = FirebaseAuth.getInstance();
@@ -75,7 +75,7 @@ public class SingupActivity extends AppCompatActivity implements GoogleApiClient
             finish();
 
             //and open profile activity
-            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
         }
 
         //initializing views
@@ -119,7 +119,7 @@ public class SingupActivity extends AppCompatActivity implements GoogleApiClient
         //checking if email and passwords are empty
         if(TextUtils.isEmpty(email)){
             finish();
-            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+            startActivity(new Intent(getApplicationContext(), BaseActivity.class));
         }
 
         if(TextUtils.isEmpty(password)){
@@ -141,7 +141,7 @@ public class SingupActivity extends AppCompatActivity implements GoogleApiClient
                             u.setUsername(getUsername);
                             database.child("users/" + u.getFirebaseId()).setValue(u);
                             finish();
-                            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                            startActivity(new Intent(getApplicationContext(), BaseActivity.class));
                         }else{
                             //display some message here
                             Toast.makeText(SingupActivity.this,"Error de registro",Toast.LENGTH_LONG).show();
@@ -186,7 +186,7 @@ public class SingupActivity extends AppCompatActivity implements GoogleApiClient
                                         Log.d("Exist", "User: " + user.getEmail() + " exists");
                                     }
                                     finish();
-                                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                                    startActivity(new Intent(getApplicationContext(), BaseActivity.class));
                                 }
                                 @Override
                                 public void onCancelled(DatabaseError databaseError) {
