@@ -4,18 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <ImageButton
-        android:id="@+id/imgbutton_createcourse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/createcourse"
-        android:layout_gravity="center_horizontal" />
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Bienvenidos -------------" />
+        android:gravity="center"
+        android:text="Bienvenidos" />
 
 </LinearLayout>

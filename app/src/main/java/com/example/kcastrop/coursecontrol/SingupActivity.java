@@ -118,7 +118,6 @@ public class SingupActivity extends AppCompatActivity implements GoogleApiClient
 
         //checking if email and passwords are empty
         if(TextUtils.isEmpty(email)){
-            finish();
             Toast.makeText(this,"Por favor ingrese un email",Toast.LENGTH_LONG).show();
             return;
         }

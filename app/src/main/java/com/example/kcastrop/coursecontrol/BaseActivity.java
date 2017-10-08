@@ -33,7 +33,7 @@ import java.util.ArrayList;
 
 import entities.User;
 
-public class BaseActivity extends AppCompatActivity implements View.OnClickListener{
+public class BaseActivity extends AppCompatActivity{
 
     //firebase auth object
     private FirebaseAuth firebaseAuth;
@@ -74,6 +74,8 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
 
         mNavItems.add(new NavItem("Inicio", "Menu principal", R.drawable.ic_home));
+        mNavItems.add(new NavItem("Mis cursos", "Cursos inscritos", R.drawable.ic_book));
+        mNavItems.add(new NavItem("Administrar", "Crear o administrar cursos", R.drawable.ic_assignment));
         mNavItems.add(new NavItem("Preferencias", "Ajustes de cuentas", R.drawable.ic_settings));
         mNavItems.add(new NavItem("Acerca", "Informacion sobre nosotros", R.drawable.ic_info));
         mNavItems.add(new NavItem("Cerrar sesion", "Salir de la cuenta", R.drawable.ic_logout));
@@ -172,15 +174,23 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case 1 :
                 Log.d("Item selected", Integer.toString(position));
+                break;
+            case 2 :
+                Log.d("Item selected", Integer.toString(position));
+                Intent managecourses = new Intent(getApplicationContext(), CreateCourseActivity.class);
+                startActivity(managecourses);
+                break;
+            case 3 :
+                Log.d("Item selected", Integer.toString(position));
                 Intent settings = new Intent(getApplicationContext(), SettingsActivity.class);
                 startActivity(settings);
                 break;
-            case 2 :
+            case 4 :
                 Log.d("Item selected", Integer.toString(position));
                 Intent about = new Intent(getApplicationContext(), AboutActivity.class);
                 startActivity(about);
                 break;
-            case 3 :
+            case 5 :
                 Log.d("Item selected", Integer.toString(position));
                 logoutUser();
                 break;
@@ -201,11 +211,13 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 .commit();
         */
 
+
         mDrawerList.setItemChecked(position, true);
-        setTitle(mNavItems.get(position).mTitle);
+        //setTitle(mNavItems.get(position).mTitle);
 
         // Close the drawer
         mDrawerLayout.closeDrawer(mDrawerPane);
+
     }
 
     @Override
@@ -226,11 +238,6 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         mDrawerToggle.syncState();
-    }
-
-    @Override
-    public void onClick(View view) {
-
     }
 
     class NavItem {

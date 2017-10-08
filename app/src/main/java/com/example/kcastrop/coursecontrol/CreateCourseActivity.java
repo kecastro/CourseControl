@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -19,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import entities.User;
 import entities.Course;
 
-public class CreateCourseActivity extends AppCompatActivity{
+public class CreateCourseActivity extends BaseActivity{
 
     private EditText nameCourse;
     private EditText course_reference;
@@ -33,7 +34,9 @@ public class CreateCourseActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_course);
+
+        FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.mainContent);
+        getLayoutInflater().inflate(R.layout.activity_create_course, contentFrameLayout);
 
         final EditText nameCourse = (EditText) findViewById(R.id.name_course);
         final EditText course_reference = (EditText) findViewById(R.id.course_reference);
