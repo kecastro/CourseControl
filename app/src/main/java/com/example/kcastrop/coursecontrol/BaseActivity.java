@@ -74,8 +74,11 @@ public class BaseActivity extends AppCompatActivity{
 
 
         mNavItems.add(new NavItem("Inicio", "Menu principal", R.drawable.ic_home));
-        mNavItems.add(new NavItem("Mis cursos", "Cursos inscritos", R.drawable.ic_book));
-        mNavItems.add(new NavItem("Administrar", "Crear o administrar cursos", R.drawable.ic_assignment));
+        //falta incluir los iconos: ic_book y ic_assignment
+        //mNavItems.add(new NavItem("Mis cursos", "Cursos inscritos", R.drawable.ic_book));
+        mNavItems.add(new NavItem("Mis cursos", "Cursos inscritos", R.drawable.ic_home));
+        //mNavItems.add(new NavItem("Administrar", "Crear o administrar cursos", R.drawable.ic_assignment));
+        mNavItems.add(new NavItem("Administrar", "Crear o administrar cursos", R.drawable.ic_home));
         mNavItems.add(new NavItem("Preferencias", "Ajustes de cuentas", R.drawable.ic_settings));
         mNavItems.add(new NavItem("Acerca", "Informacion sobre nosotros", R.drawable.ic_info));
         mNavItems.add(new NavItem("Cerrar sesion", "Salir de la cuenta", R.drawable.ic_logout));
