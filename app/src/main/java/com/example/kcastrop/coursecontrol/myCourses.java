@@ -1,13 +1,9 @@
 package com.example.kcastrop.coursecontrol;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -19,16 +15,14 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import entities.Course;
-import entities.User;
 
 /**
  * Created by kevincastro on 10/7/17.
  */
 
-public class HomeActivity extends BaseActivity{
+public class myCourses extends BaseActivity{
 
 
     private DatabaseReference database;
@@ -55,14 +49,14 @@ public class HomeActivity extends BaseActivity{
             listViewCourses = (ListView) findViewById(R.id.list_course);
             active = this;
             courses = new ArrayList<>();
-            //information.setText(utils.getInstance().getCurrentUser());
-
             loadCourses();
         }
     }
 
     private void loadCourses(){
-        Query queryCourses = database.child("Courses");
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        Query queryCourses = database.child("Courses").orderByChild("creator/firebaseId").endAt(user.getUid());
+        //information.setText(user.getEmail());
         queryCourses.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -71,9 +65,9 @@ public class HomeActivity extends BaseActivity{
                     courses.add(course);
                 }
                 if (dataSnapshot != null)
-                    information.setText("Cursos diponibles");
+                    information.setText("Tus cursos");
                 else
-                    information.setText("No hay cursos disponibles");
+                    information.setText("No has creado ningún curso");
                 courseAdapter adapter = new courseAdapter(active, courses);
                 listViewCourses.setAdapter(adapter);
             }

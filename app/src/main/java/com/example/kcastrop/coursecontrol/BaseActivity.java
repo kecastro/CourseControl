@@ -143,7 +143,8 @@ public class BaseActivity extends AppCompatActivity{
         userRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                textViewUsername.setText(dataSnapshot.getValue(User.class).getUsername());
+                String tmpUser  =  dataSnapshot.getValue(User.class).getUsername();
+                textViewUsername.setText(tmpUser);
             }
 
             @Override
@@ -177,6 +178,8 @@ public class BaseActivity extends AppCompatActivity{
                 break;
             case 1 :
                 Log.d("Item selected", Integer.toString(position));
+                Intent mycourses = new Intent(getApplicationContext(), myCourses.class);
+                startActivity(mycourses);
                 break;
             case 2 :
                 Log.d("Item selected", Integer.toString(position));
