@@ -18,11 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".BaseActivity"></activity>
-        <activity android:name=".HomeActivity"></activity>
-        <activity android:name=".AboutActivity"></activity>
-        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".BaseActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".AboutActivity" />
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".CreateCourseActivity"></activity>
     </application>
 
 </manifest>

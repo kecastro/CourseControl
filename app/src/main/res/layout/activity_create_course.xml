@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.kcastrop.coursecontrol.CreateCourseActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="15dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="CREAR CURSO"
+            android:textSize="20pt" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre del curso:" />
+
+        <EditText
+            android:id="@+id/name_course"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese nombre de curso" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descripcion:" />
+
+        <EditText
+            android:id="@+id/course_reference"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:lines="2"
+            android:hint="Ingrese descripcion de curso" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lugar:" />
+
+        <EditText
+            android:id="@+id/course_location"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese lugar " />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Numero de cupos:" />
+
+        <EditText
+            android:id="@+id/course_max_students"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese el numero de cupos " />
+
+        <Button
+            android:id="@+id/btn_create_course"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Crear" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "438712868631-uv5c9hp580rfcl5d513l7f1dc26f8tgf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kcastrop.coursecontrol",
+            "certificate_hash": "9286a5029dafb91d950baa379dd128f2c0eaacc6"
+          }
+        },
+        {
+          "client_id": "438712868631-20d6b76fs2k2tdkvd361qqodudrbj85c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kcastrop.coursecontrol",
+            "certificate_hash": "20c09eab1d5d2b8f1cdd9bb53520bcd901ae0f11"
+          }
+        },
+        {
           "client_id": "438712868631-5474hjg739c3l6f6ttkgrlfobv9130bt.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

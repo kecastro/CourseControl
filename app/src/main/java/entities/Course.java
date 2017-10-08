@@ -12,6 +12,7 @@ public class Course {
     private String reference;
     private String location;
     private User creator;
+    private int max_num_students;
     private ArrayList<User> enrolledUsers;
 
     public Course(){}
@@ -23,12 +24,13 @@ public class Course {
         this.creator = creator;
     }
 
-    public Course(String name, String reference, String location, User creator) {
+    public Course(String name, String reference, String location, User creator, int max_num_students) {
         this.courseId = creator.getFirebaseId() + name;
         this.name = name;
         this.reference = reference;
         this.location = location;
         this.creator = creator;
+        this.max_num_students = max_num_students;
     }
 
     public String getCourseId() {
@@ -78,4 +80,13 @@ public class Course {
     public void setEnrolledUsers(ArrayList<User> enrolledUsers) {
         this.enrolledUsers = enrolledUsers;
     }
+
+    public int getMax_num_students() {
+        return max_num_students;
+    }
+
+    public void setMax_num_students(int max_num_students) {
+        this.max_num_students = max_num_students;
+    }
+
 }
