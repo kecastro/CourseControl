@@ -119,7 +119,8 @@ public class SingupActivity extends AppCompatActivity implements GoogleApiClient
         //checking if email and passwords are empty
         if(TextUtils.isEmpty(email)){
             finish();
-            startActivity(new Intent(getApplicationContext(), BaseActivity.class));
+            Toast.makeText(this,"Por favor ingrese un email",Toast.LENGTH_LONG).show();
+            return;
         }
 
         if(TextUtils.isEmpty(password)){
@@ -141,7 +142,7 @@ public class SingupActivity extends AppCompatActivity implements GoogleApiClient
                             u.setUsername(getUsername);
                             database.child("users/" + u.getFirebaseId()).setValue(u);
                             finish();
-                            startActivity(new Intent(getApplicationContext(), BaseActivity.class));
+                            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                         }else{
                             //display some message here
                             Toast.makeText(SingupActivity.this,"Error de registro",Toast.LENGTH_LONG).show();
@@ -186,7 +187,7 @@ public class SingupActivity extends AppCompatActivity implements GoogleApiClient
                                         Log.d("Exist", "User: " + user.getEmail() + " exists");
                                     }
                                     finish();
-                                    startActivity(new Intent(getApplicationContext(), BaseActivity.class));
+                                    startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                                 }
                                 @Override
                                 public void onCancelled(DatabaseError databaseError) {
