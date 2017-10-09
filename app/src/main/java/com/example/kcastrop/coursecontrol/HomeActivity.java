@@ -1,16 +1,14 @@
 package com.example.kcastrop.coursecontrol;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,16 +17,14 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import entities.Course;
-import entities.User;
 
 /**
  * Created by kevincastro on 10/7/17.
  */
 
-public class HomeActivity extends BaseActivity{
+public class HomeActivity extends BaseActivity implements AdapterView.OnItemClickListener {
 
 
     private DatabaseReference database;
@@ -37,6 +33,7 @@ public class HomeActivity extends BaseActivity{
     private ArrayList<Course> courses;
     private ListView listViewCourses;
     private BaseActivity active;
+    private CourseAdapter adapter;
 
 
     @Override
@@ -56,8 +53,9 @@ public class HomeActivity extends BaseActivity{
             active = this;
             courses = new ArrayList<>();
             //information.setText(utils.getInstance().getCurrentUser());
-
             loadCourses();
+
+            listViewCourses.setOnItemClickListener(this);
         }
     }
 
@@ -74,7 +72,7 @@ public class HomeActivity extends BaseActivity{
                     information.setText("Cursos diponibles");
                 else
                     information.setText("No hay cursos disponibles");
-                courseAdapter adapter = new courseAdapter(active, courses);
+                adapter= new CourseAdapter(active, courses);
                 listViewCourses.setAdapter(adapter);
             }
 
@@ -85,4 +83,9 @@ public class HomeActivity extends BaseActivity{
         });
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        Course course = (Course)adapter.getItem(i);
+        Toast.makeText(active,course.getName(),Toast.LENGTH_SHORT).show();
+    }
 }

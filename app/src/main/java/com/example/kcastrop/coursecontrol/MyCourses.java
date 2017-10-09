@@ -22,7 +22,7 @@ import entities.Course;
  * Created by kevincastro on 10/7/17.
  */
 
-public class myCourses extends BaseActivity{
+public class MyCourses extends BaseActivity{
 
 
     private DatabaseReference database;
@@ -68,7 +68,7 @@ public class myCourses extends BaseActivity{
                     information.setText("Tus cursos");
                 else
                     information.setText("No has creado ningún curso");
-                courseAdapter adapter = new courseAdapter(active, courses);
+                CourseAdapter adapter = new CourseAdapter(active, courses);
                 listViewCourses.setAdapter(adapter);
             }
 

@@ -8,26 +8,26 @@ import java.util.ArrayList;
 
 
 public class User {
-    private String username;
+    private String email;
     private String firebaseId;
     private ArrayList<Course> enrolledCourses;
     private ArrayList<Course> createdCourses;
 
     public User(){}
 
-    public User(String firebaseId){
+    public User(String firebaseId, String email){
         this.firebaseId = firebaseId;
-        this.username = null;
+        this.email = email;
         this.enrolledCourses = null;
         this.createdCourses = null;
     }
 
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getFirebaseId() {

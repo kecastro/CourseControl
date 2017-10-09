@@ -1,7 +1,5 @@
 package com.example.kcastrop.coursecontrol;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.widget.DrawerLayout;
@@ -143,7 +141,7 @@ public class BaseActivity extends AppCompatActivity{
         userRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String tmpUser  =  dataSnapshot.getValue(User.class).getUsername();
+                String tmpUser  =  dataSnapshot.getValue(User.class).getEmail();
                 textViewUsername.setText(tmpUser);
             }
 
@@ -178,7 +176,7 @@ public class BaseActivity extends AppCompatActivity{
                 break;
             case 1 :
                 Log.d("Item selected", Integer.toString(position));
-                Intent mycourses = new Intent(getApplicationContext(), myCourses.class);
+                Intent mycourses = new Intent(getApplicationContext(), MyCourses.class);
                 startActivity(mycourses);
                 break;
             case 2 :

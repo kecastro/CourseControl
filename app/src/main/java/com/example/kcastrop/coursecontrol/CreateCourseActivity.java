@@ -5,7 +5,6 @@ package com.example.kcastrop.coursecontrol;
  */
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -75,13 +74,13 @@ public class CreateCourseActivity extends BaseActivity{
                     // Handle parse error.
                 }
                 firebaseAuth = FirebaseAuth.getInstance();
-                User u = new User(firebaseAuth.getCurrentUser().getUid());
+                User u = new User(firebaseAuth.getCurrentUser().getUid(),firebaseAuth.getCurrentUser().getEmail());
                 database = FirebaseDatabase.getInstance().getReference();
                 Course course = new Course(name,reference,location,u,max_students);
                 database.child("Courses").child(course.getCourseId()).setValue(course);
                 finish();
                 Toast.makeText(CreateCourseActivity.this,"Curso creado",Toast.LENGTH_LONG).show();
-                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                startActivity(new Intent(getApplicationContext(), MyCourses.class));
             }
         });
     }

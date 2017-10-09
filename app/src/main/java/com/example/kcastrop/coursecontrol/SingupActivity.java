@@ -135,10 +135,10 @@ public class SingupActivity extends AppCompatActivity implements GoogleApiClient
                         //checking if success
                         if(task.isSuccessful()){
                             //display some message here
-                            User u = new User(firebaseAuth.getCurrentUser().getUid());
+                            User u = new User(firebaseAuth.getCurrentUser().getUid(),firebaseAuth.getCurrentUser().getEmail());
                             String e = firebaseAuth.getCurrentUser().getEmail();
                             String getUsername = e.substring(0, e.lastIndexOf("."));
-                            u.setUsername(getUsername);
+                            u.setEmail(getUsername);
                             database.child("users/" + u.getFirebaseId()).setValue(u);
                             finish();
                             startActivity(new Intent(getApplicationContext(), HomeActivity.class));
@@ -176,10 +176,10 @@ public class SingupActivity extends AppCompatActivity implements GoogleApiClient
                                 public void onDataChange(DataSnapshot dataSnapshot) {
                                     if(!dataSnapshot.child(user.getUid()).exists()){
                                         Log.d("Exist", "User: " + user.getEmail() + " does not exists in database. Adding ...");
-                                        User u = new User(firebaseAuth.getCurrentUser().getUid());
+                                        User u = new User(firebaseAuth.getCurrentUser().getUid(),firebaseAuth.getCurrentUser().getEmail());
                                         String e = firebaseAuth.getCurrentUser().getEmail();
                                         String getUsername = e.substring(0, e.lastIndexOf("."));
-                                        u.setUsername(getUsername);
+                                        u.setEmail(getUsername);
                                         database.child("users/" + u.getFirebaseId()).setValue(u);
                                     }
                                     else{

@@ -16,13 +16,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="CREAR CURSO"
-            android:textSize="20pt" />
+            android:text="Crear Curso\n"
+            android:textSize="13pt"
+            android:textColor="#000000"/>
 
         <TextView
+            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nombre del curso:" />
+            android:text="Nombre del curso:"
+            android:textStyle="bold"/>
 
         <EditText
             android:id="@+id/name_course"
@@ -33,12 +36,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Descripcion:" />
+            android:text="Descripcion:"
+            android:textStyle="bold"/>
 
         <EditText
             android:id="@+id/course_reference"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="53dp"
             android:inputType="textMultiLine"
             android:lines="2"
             android:hint="Ingrese descripcion de curso" />
@@ -46,7 +50,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lugar:" />
+            android:text="Lugar:"
+            android:textStyle="bold"/>
 
         <EditText
             android:id="@+id/course_location"
@@ -57,7 +62,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Numero de cupos:" />
+            android:text="\nNumero de cupos:"
+            android:textStyle="bold"/>
 
         <EditText
             android:id="@+id/course_max_students"

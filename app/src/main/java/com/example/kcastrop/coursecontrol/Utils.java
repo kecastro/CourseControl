@@ -15,20 +15,20 @@ import entities.User;
  * Created by AnDresLoPz on 10/8/2017.
  */
 
-public class utils {
+public class Utils {
 
     private DatabaseReference database;
     private FirebaseAuth firebaseAuth;
     private String currentUser;
-    private static utils instance = null;
+    private static Utils instance = null;
 
-    private utils (){
+    private Utils (){
 
     }
 
-    public static utils getInstance(){
+    public static Utils getInstance(){
         if (instance == null){
-            instance = new utils();
+            instance = new Utils();
         }
         return instance;
     }
