@@ -24,7 +24,10 @@
         <activity android:name=".MyCourses" />
         <activity android:name=".AboutActivity" />
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".CreateCourseActivity"></activity>
+        <activity android:name=".CreateCourseActivity" />
+        <activity
+            android:name=".EnrollCourseActivity"
+            android:label="@string/title_activity_subscribe_course"></activity>
     </application>
 
 </manifest>

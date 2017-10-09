@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.kcastrop.coursecontrol.EnrollCourseActivity">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="15dp"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/name_course"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Nombre Curso\n"
+            android:textAlignment="center"
+            android:textSize="11pt"
+            android:textStyle="bold"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:id="@+id/course_reference"
+            android:layout_width="331dp"
+            android:layout_height="wrap_content"
+            android:text="Descripcion:"
+            android:textColor="#1d1b1b"
+            android:textSize="8pt"
+            android:layout_weight="0.08" />
+
+        <TextView
+            android:id="@+id/course_location"
+            android:layout_width="331dp"
+            android:layout_height="wrap_content"
+            android:text="Lugar:"
+            android:textColor="#1d1b1b"
+            android:textSize="8pt"
+            android:layout_weight="0.10" />
+
+        <!--<TextView
+            android:id="@+id/course_max_students"
+            android:layout_width="332dp"
+            android:layout_height="wrap_content"
+            android:text="\nNumero de cupos:"
+            android:textColor="#1d1b1b"
+            android:layout_weight="0.11" />-->
+
+        <Button
+            android:id="@+id/btn_subscribe_course"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Inscribirse en curso" />
+
+        <TextView
+            android:id="@+id/textInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textAlignment="center"/>
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

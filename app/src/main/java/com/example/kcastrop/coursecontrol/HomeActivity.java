@@ -1,5 +1,6 @@
 package com.example.kcastrop.coursecontrol;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -87,5 +88,14 @@ public class HomeActivity extends BaseActivity implements AdapterView.OnItemClic
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Course course = (Course)adapter.getItem(i);
         Toast.makeText(active,course.getName(),Toast.LENGTH_SHORT).show();
+        //Send variables to other activity
+        Intent intent = new Intent(active,EnrollCourseActivity.class);
+        intent.putExtra("variable_id_course",course.getCourseId());
+        intent.putExtra("variable_name_course",course.getName());
+        intent.putExtra("variable_reference_course",course.getReference());
+        intent.putExtra("variable_location_course",course.getLocation());
+        intent.putExtra("variable_idCreator_course",course.getCreator().getFirebaseId());
+        startActivity(intent);
+        //startActivity(new Intent(getApplicationContext(), EnrollCourseActivity.class));
     }
 }
