@@ -47,15 +47,11 @@ public class HomeActivity extends BaseActivity implements AdapterView.OnItemClic
 
             FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.mainContent);
             getLayoutInflater().inflate(R.layout.activity_home, contentFrameLayout);
-            //setContentView(R.layout.activity_home);
 
             information = (TextView) findViewById(R.id.info);
             listViewCourses = (ListView) findViewById(R.id.list_course);
             active = this;
-            courses = new ArrayList<>();
-            //information.setText(utils.getInstance().getCurrentUser());
             loadCourses();
-
             listViewCourses.setOnItemClickListener(this);
         }
     }
@@ -65,6 +61,7 @@ public class HomeActivity extends BaseActivity implements AdapterView.OnItemClic
         queryCourses.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                courses = new ArrayList<Course>();
                 for(DataSnapshot coursesSnapshot: dataSnapshot.getChildren()){
                     Course course = coursesSnapshot.getValue(Course.class);
                     courses.add(course);
@@ -87,7 +84,6 @@ public class HomeActivity extends BaseActivity implements AdapterView.OnItemClic
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Course course = (Course)adapter.getItem(i);
-        Toast.makeText(active,course.getName(),Toast.LENGTH_SHORT).show();
         //Send variables to other activity
         Intent intent = new Intent(active,EnrollCourseActivity.class);
         intent.putExtra("variable_id_course",course.getCourseId());

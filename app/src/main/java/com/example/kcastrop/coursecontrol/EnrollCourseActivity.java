@@ -36,6 +36,7 @@ public class EnrollCourseActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.mainContent);
         getLayoutInflater().inflate(R.layout.activity_enroll_course, contentFrameLayout);
 
@@ -62,12 +63,10 @@ public class EnrollCourseActivity extends BaseActivity {
             info.setText("No puedes inscribirte en un curso en el que eres dueño");
             //Toast.makeText(this,"No puedes inscribirte en un curso en el que eres dueño",Toast.LENGTH_LONG).show();
         }else {
-            Query queryCourses = database.child("EnrollCourse").orderByChild("idCourse").endAt(idCourse);
+            Query queryCourses = database.child("EnrollCourse").orderByChild("idCourse").equalTo(idCourse);
             queryCourses.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    Toast.makeText(EnrollCourseActivity.this, "Ya has enviado una solicitud", Toast.LENGTH_LONG).show();
-
                     for (DataSnapshot enrollCourseSnapshot : dataSnapshot.getChildren()) {
                         EnrollCourse enrollCourse = enrollCourseSnapshot.getValue(EnrollCourse.class);
                         /*if (enrollCourse.getIdStudent().equals(idUser) && enrollCourse.getIdCourse().equals(idCourse)) {
@@ -91,7 +90,7 @@ public class EnrollCourseActivity extends BaseActivity {
             public void onClick(View view) {
                 firebaseAuth = FirebaseAuth.getInstance();
                 database = FirebaseDatabase.getInstance().getReference();
-               // EnrollCourse enrollCourse = new EnrollCourse(idCourse,idUser);
+                //EnrollCourse enrollCourse = new EnrollCourse(idCourse,idUser);
                 //database.child("EnrollCourse").child(enrollCourse.getIdEnrollCourse()).setValue(enrollCourse);
                 finish();
                 Toast.makeText(EnrollCourseActivity.this,"Tu solicitud ha sido enviada",Toast.LENGTH_LONG).show();
