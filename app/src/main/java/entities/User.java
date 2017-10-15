@@ -8,18 +8,20 @@ import java.util.ArrayList;
 
 
 public class User {
-    private String email;
+
     private String firebaseId;
-    private ArrayList<Course> enrolledCourses;
-    private ArrayList<Course> createdCourses;
+    private String email;
+    private String photo;
+    private String username;
+    private String phone;
+    private String name;
+    private Boolean premium;
 
     public User(){}
 
     public User(String firebaseId, String email){
-        this.firebaseId = firebaseId;
-        this.email = email;
-        this.enrolledCourses = null;
-        this.createdCourses = null;
+        this.setFirebaseId(firebaseId);
+        this.setEmail(email);
     }
 
     public String getEmail() {
@@ -38,19 +40,43 @@ public class User {
         this.firebaseId = firebaseId;
     }
 
-    public ArrayList<Course> getEnrolledCourses() {
-        return enrolledCourses;
+    public String getPhoto() {
+        return photo;
     }
 
-    public void setEnrolledCourses(ArrayList<Course> enrolledCourses) {
-        this.enrolledCourses = enrolledCourses;
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
-    public ArrayList<Course> getCreatedCourses() {
-        return createdCourses;
+    public String getUsername() {
+        return username;
     }
 
-    public void setCreatedCourses(ArrayList<Course> createdCourses) {
-        this.createdCourses = createdCourses;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Boolean getPremium() {
+        return premium;
+    }
+
+    public void setPremium(Boolean premium) {
+        this.premium = premium;
     }
 }

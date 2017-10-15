@@ -7,35 +7,35 @@ package entities;
 public class EnrollCourse {
 
     private String idEnrollCourse;
-    private String idCourse;
-    private String idStudent;
+    private Course course;
+    private User student;
     private String State;
 
     public EnrollCourse(){
 
     }
 
-    public EnrollCourse (String idCourse, String idStudent){
-        this.setIdEnrollCourse(idCourse+idStudent);
-        this.setIdCourse(idCourse);
-        this.setIdStudent(idStudent);
+    public EnrollCourse (Course course, User student){
+        this.setIdEnrollCourse(course.getCourseId()+student.getFirebaseId());
+        this.setCourse(course);
+        this.setStudent(student);
         this.setState("PENDIENTE");
     }
 
-    public String getIdCourse() {
-        return idCourse;
+    public Course getCourse() {
+        return course;
     }
 
-    public void setIdCourse(String idCourse) {
-        this.idCourse = idCourse;
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
-    public String getIdStudent() {
-        return idStudent;
+    public User getStudent() {
+        return student;
     }
 
-    public void setIdStudent(String idStudent) {
-        this.idStudent = idStudent;
+    public void setStudent(User student) {
+        this.student = student;
     }
 
     public String getState() {
