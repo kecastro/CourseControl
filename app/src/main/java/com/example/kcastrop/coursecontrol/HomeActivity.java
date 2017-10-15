@@ -92,7 +92,7 @@ public class HomeActivity extends BaseActivity implements AdapterView.OnItemClic
         Intent intent = new Intent(active,EnrollCourseActivity.class);
         intent.putExtra("variable_id_course",course.getCourseId());
         intent.putExtra("variable_name_course",course.getName());
-        intent.putExtra("variable_reference_course",course.getReference());
+        //intent.putExtra("variable_reference_course",course.getReference());
         intent.putExtra("variable_location_course",course.getLocation());
         intent.putExtra("variable_idCreator_course",course.getCreator().getFirebaseId());
         startActivity(intent);

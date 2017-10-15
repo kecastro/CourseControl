@@ -5,7 +5,7 @@ package entities;
  */
 
 public class RolUserCourse {
-    private Integer id;
+    //private Integer id;
     private Course course;
     private User user;
     private String Rol;
@@ -15,14 +15,14 @@ public class RolUserCourse {
         this.setUser(user);
         this.setRol(rol);
     }
-
+    /*
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
-    }
+    }*/
 
     public Course getourse() {
         return course;

@@ -6,17 +6,12 @@ package entities;
 
 public class EnrollCourse {
 
-    private String idEnrollCourse;
+    //private String idEnrollCourse;
     private Course course;
     private User student;
     private String State;
 
-    public EnrollCourse(){
-
-    }
-
     public EnrollCourse (Course course, User student){
-        this.setIdEnrollCourse(course.getCourseId()+student.getFirebaseId());
         this.setCourse(course);
         this.setStudent(student);
         this.setState("PENDIENTE");
@@ -45,7 +40,7 @@ public class EnrollCourse {
     public void setState(String state) {
         State = state;
     }
-
+/*
     public String getIdEnrollCourse() {
         return idEnrollCourse;
     }
@@ -53,4 +48,5 @@ public class EnrollCourse {
     public void setIdEnrollCourse(String idEnrollCourse) {
         this.idEnrollCourse = idEnrollCourse;
     }
+    */
 }

@@ -75,7 +75,7 @@ public class Course {
     public void setCreator(User creator) {
         this.creator = creator;
     }
-    
+
     public int getMaxNumStudents() {
         return maxNumStudents;
     }

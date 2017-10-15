@@ -70,11 +70,11 @@ public class EnrollCourseActivity extends BaseActivity {
 
                     for (DataSnapshot enrollCourseSnapshot : dataSnapshot.getChildren()) {
                         EnrollCourse enrollCourse = enrollCourseSnapshot.getValue(EnrollCourse.class);
-                        if (enrollCourse.getIdStudent().equals(idUser) && enrollCourse.getIdCourse().equals(idCourse)) {
+                        /*if (enrollCourse.getIdStudent().equals(idUser) && enrollCourse.getIdCourse().equals(idCourse)) {
                             subscribe.setEnabled(false);
                             info.setText("Ya has enviado una solicitud");
                             //Toast.makeText(EnrollCourseActivity.this, "Ya has enviado una solicitud", Toast.LENGTH_LONG).show();
-                        }
+                        }*/
 
                     }
                 }
@@ -91,8 +91,8 @@ public class EnrollCourseActivity extends BaseActivity {
             public void onClick(View view) {
                 firebaseAuth = FirebaseAuth.getInstance();
                 database = FirebaseDatabase.getInstance().getReference();
-                EnrollCourse enrollCourse = new EnrollCourse(idCourse,idUser);
-                database.child("EnrollCourse").child(enrollCourse.getIdEnrollCourse()).setValue(enrollCourse);
+               // EnrollCourse enrollCourse = new EnrollCourse(idCourse,idUser);
+                //database.child("EnrollCourse").child(enrollCourse.getIdEnrollCourse()).setValue(enrollCourse);
                 finish();
                 Toast.makeText(EnrollCourseActivity.this,"Tu solicitud ha sido enviada",Toast.LENGTH_LONG).show();
             }

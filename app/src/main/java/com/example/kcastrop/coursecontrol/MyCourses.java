@@ -17,6 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 import entities.Course;
+import entities.User;
 
 /**
  * Created by kevincastro on 10/7/17.
@@ -37,46 +38,20 @@ public class MyCourses extends BaseActivity{
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        synchronized (this) {
-            database = FirebaseDatabase.getInstance().getReference();
-            firebaseAuth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance().getReference();
+        firebaseAuth = FirebaseAuth.getInstance();
 
-            FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.mainContent);
-            getLayoutInflater().inflate(R.layout.activity_home, contentFrameLayout);
-            //setContentView(R.layout.activity_home);
+        FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.mainContent);
+        getLayoutInflater().inflate(R.layout.activity_home, contentFrameLayout);
+        //setContentView(R.layout.activity_home);
 
-            information = (TextView) findViewById(R.id.info);
-            listViewCourses = (ListView) findViewById(R.id.list_course);
-            active = this;
-            courses = new ArrayList<>();
-            loadCourses();
-        }
-    }
-
-    private void loadCourses(){
+        information = (TextView) findViewById(R.id.info);
+        listViewCourses = (ListView) findViewById(R.id.list_course);
+        active = this;
         FirebaseUser user = firebaseAuth.getCurrentUser();
-        Query queryCourses = database.child("Courses").orderByChild("creator/firebaseId").endAt(user.getUid());
-        //information.setText(user.getEmail());
-        queryCourses.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot coursesSnapshot: dataSnapshot.getChildren()){
-                    Course course = coursesSnapshot.getValue(Course.class);
-                    courses.add(course);
-                }
-                if (dataSnapshot != null)
-                    information.setText("Tus cursos");
-                else
-                    information.setText("No has creado ningún curso");
-                CourseAdapter adapter = new CourseAdapter(active, courses);
-                listViewCourses.setAdapter(adapter);
-            }
+        User ut = new User(user.getUid(),user.getEmail());
+        ut.myCreatedCourses(active,listViewCourses);
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
     }
 
 }

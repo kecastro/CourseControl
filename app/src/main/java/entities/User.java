@@ -1,5 +1,20 @@
 package entities;
 
+import android.app.Activity;
+import android.util.Log;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import com.example.kcastrop.coursecontrol.BaseActivity;
+import com.example.kcastrop.coursecontrol.CourseAdapter;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 
 /**
@@ -16,6 +31,7 @@ public class User {
     private String phone;
     private String name;
     private Boolean premium;
+    ArrayList<Course> courses;
 
     public User(){}
 
@@ -23,6 +39,32 @@ public class User {
         this.setFirebaseId(firebaseId);
         this.setEmail(email);
     }
+
+    public ArrayList<Course> getMyCourses(){return this.courses;}
+
+    public void myCreatedCourses(final BaseActivity activity, final ListView listView){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference();
+        Query queryCourses = ref.child("Courses").orderByChild("creator/firebaseId").equalTo(getFirebaseId());
+        queryCourses.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                courses = new ArrayList<Course>();
+                for(DataSnapshot coursesSnapshot: dataSnapshot.getChildren()){
+                    Course course = coursesSnapshot.getValue(Course.class);
+                    courses.add(course);
+                    Log.d("Insert Course",course.getName());
+                }
+                CourseAdapter adapter = new CourseAdapter(activity, courses);
+                listView.setAdapter(adapter);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.d("User>>createdCourse",databaseError.getMessage()+" details:"+databaseError.getDetails());
+            }
+        });
+    }
+
 
     public String getEmail() {
         return email;
