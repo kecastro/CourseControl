@@ -6,13 +6,13 @@ import java.sql.Date;
  * Created by AnDresLoPz on 10/14/2017.
  */
 
-public class RecordAssisrtance {
+public class RecordAttendance {
     private Date time;
     private Course course;
     private User student;
     private User recorder;
 
-    public RecordAssisrtance(Date time, Course course,User student, User recorder ){
+    public RecordAttendance(Date time, Course course, User student, User recorder ){
         this.time = time;
         this.course = course;
         this.student = student;
