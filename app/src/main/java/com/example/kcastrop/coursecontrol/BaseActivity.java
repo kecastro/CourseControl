@@ -19,6 +19,9 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -36,6 +39,7 @@ public class BaseActivity extends AppCompatActivity{
     //firebase auth object
     private FirebaseAuth firebaseAuth;
     private DatabaseReference database;
+    private GoogleApiClient mGoogleApiClient;
 
     //view objects
     private TextView textViewUsername;
@@ -72,11 +76,8 @@ public class BaseActivity extends AppCompatActivity{
 
 
         mNavItems.add(new NavItem("Inicio", "Menu principal", R.drawable.ic_home));
-        //falta incluir los iconos: ic_book y ic_assignment
-        //mNavItems.add(new NavItem("Mis cursos", "Cursos inscritos", R.drawable.ic_book));
-        mNavItems.add(new NavItem("Mis cursos", "Cursos inscritos", R.drawable.ic_home));
-        //mNavItems.add(new NavItem("Administrar", "Crear o administrar cursos", R.drawable.ic_assignment));
-        mNavItems.add(new NavItem("Administrar", "Crear o administrar cursos", R.drawable.ic_home));
+        mNavItems.add(new NavItem("Mis cursos", "Cursos inscritos", R.drawable.ic_book));
+        mNavItems.add(new NavItem("Administrar", "Crear o administrar cursos", R.drawable.ic_assignment));
         mNavItems.add(new NavItem("Preferencias", "Ajustes de cuentas", R.drawable.ic_settings));
         mNavItems.add(new NavItem("Acerca", "Informacion sobre nosotros", R.drawable.ic_info));
         mNavItems.add(new NavItem("Cerrar sesion", "Salir de la cuenta", R.drawable.ic_logout));
@@ -114,6 +115,17 @@ public class BaseActivity extends AppCompatActivity{
                 invalidateOptionsMenu();
             }
         };
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
+
+        mGoogleApiClient.connect();
 
         mDrawerLayout.addDrawerListener(mDrawerToggle);
 
@@ -156,6 +168,9 @@ public class BaseActivity extends AppCompatActivity{
         Log.d("Cerrar sesion", "Exitoso");
         //logging out the user
         firebaseAuth.signOut();
+
+        //Google Sign out
+        Auth.GoogleSignInApi.signOut(mGoogleApiClient);
         //closing activity
         finish();
         //starting login activity
