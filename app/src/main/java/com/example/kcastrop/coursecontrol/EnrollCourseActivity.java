@@ -39,6 +39,7 @@ public class EnrollCourseActivity extends BaseActivity {
 
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.mainContent);
         getLayoutInflater().inflate(R.layout.activity_enroll_course, contentFrameLayout);
+        setTitle("Inscribir Curso");
 
         nameCourse = (TextView) findViewById(R.id.name_course);
         course_reference = (TextView) findViewById(R.id.course_reference);

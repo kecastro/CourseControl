@@ -16,6 +16,7 @@ public class AboutActivity extends BaseActivity{
 
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.mainContent);
         getLayoutInflater().inflate(R.layout.activity_about, contentFrameLayout);
+        setTitle("Acerca");
     }
 }
 

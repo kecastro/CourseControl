@@ -21,7 +21,8 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".BaseActivity" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".MyCourses" />
+        <activity android:name=".MyCoursesCreatedActivity" />
+        <activity android:name=".MyCoursesEnrolledActivity" />
         <activity android:name=".AboutActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".CreateCourseActivity" />

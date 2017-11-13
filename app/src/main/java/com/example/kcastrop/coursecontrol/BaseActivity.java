@@ -191,12 +191,12 @@ public class BaseActivity extends AppCompatActivity{
                 break;
             case 1 :
                 Log.d("Item selected", Integer.toString(position));
-                Intent mycourses = new Intent(getApplicationContext(), MyCourses.class);
+                Intent mycourses = new Intent(getApplicationContext(), MyCoursesEnrolledActivity.class);
                 startActivity(mycourses);
                 break;
             case 2 :
                 Log.d("Item selected", Integer.toString(position));
-                Intent managecourses = new Intent(getApplicationContext(), CreateCourseActivity.class);
+                Intent managecourses = new Intent(getApplicationContext(), MyCoursesCreatedActivity.class);
                 startActivity(managecourses);
                 break;
             case 3 :
@@ -232,7 +232,6 @@ public class BaseActivity extends AppCompatActivity{
 
 
         mDrawerList.setItemChecked(position, true);
-        //setTitle(mNavItems.get(position).mTitle);
 
         // Close the drawer
         mDrawerLayout.closeDrawer(mDrawerPane);

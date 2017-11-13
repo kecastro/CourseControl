@@ -37,6 +37,7 @@ public class CreateCourseActivity extends BaseActivity{
 
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.mainContent);
         getLayoutInflater().inflate(R.layout.activity_create_course, contentFrameLayout);
+        setTitle("Crear Curso");
 
         final EditText nameCourse = (EditText) findViewById(R.id.name_course);
         final EditText course_reference = (EditText) findViewById(R.id.course_reference);
@@ -80,7 +81,7 @@ public class CreateCourseActivity extends BaseActivity{
                 database.child("Courses").child(course.getCourseId()).setValue(course);
                 finish();
                 Toast.makeText(CreateCourseActivity.this,"Curso creado",Toast.LENGTH_LONG).show();
-                startActivity(new Intent(getApplicationContext(), MyCourses.class));
+                startActivity(new Intent(getApplicationContext(), MyCoursesCreatedActivity.class));
             }
         });
     }

@@ -47,6 +47,7 @@ public class HomeActivity extends BaseActivity implements AdapterView.OnItemClic
 
             FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.mainContent);
             getLayoutInflater().inflate(R.layout.activity_home, contentFrameLayout);
+            setTitle("Course Control App");
 
             information = (TextView) findViewById(R.id.info);
             listViewCourses = (ListView) findViewById(R.id.list_course);

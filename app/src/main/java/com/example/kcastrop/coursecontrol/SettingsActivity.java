@@ -16,6 +16,7 @@ public class SettingsActivity extends BaseActivity {
 
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.mainContent);
         getLayoutInflater().inflate(R.layout.activity_settings, contentFrameLayout);
+        setTitle("Preferencias");
     }
 
 }

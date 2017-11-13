@@ -61,6 +61,7 @@ public class SingupActivity extends AppCompatActivity implements GoogleApiClient
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+        setTitle("Course Control App");
 
         //initializing firebase auth object
         firebaseAuth = FirebaseAuth.getInstance();
